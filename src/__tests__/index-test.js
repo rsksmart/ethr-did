@@ -13,7 +13,13 @@ function sleep (seconds) {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000))
 }
 
-describe('EthrDID', () => {
+const namesAndMethods = [
+  ['ethereum', null, null],
+  ['ethereum - method ethr', null, 'ethr'],
+  ['rsk - method ethr:rsk', 'rsk', 'ethr:rsk']
+]
+
+describe.each(namesAndMethods)('EthrDID %s', (_, name, method) => {
   let ethrDid,
     plainDid,
     registry,
@@ -43,20 +49,31 @@ describe('EthrDID', () => {
     owner = accounts[2].toLowerCase()
     delegate1 = accounts[3].toLowerCase()
     delegate2 = accounts[4].toLowerCase()
-    did = `did:ethr:${identity}`
+    did = `did:${method || 'ethr'}:${identity}`
 
     registry = await DidReg.new({
       from: accounts[0],
       gasPrice: 100000000000,
       gas: 4712388
     })
-    ethrDid = new EthrDID({
-      provider,
-      registry: registry.address,
-      address: identity
-    })
-    resolver = new Resolver(
-      getResolver({ provider, registry: registry.address })
+    ethrDid = (
+      !method
+        ? new EthrDID({
+          provider,
+          registry: registry.address,
+          address: identity
+        })
+        : new EthrDID({
+          provider,
+          registry: registry.address,
+          address: identity,
+          method
+        })
+    )
+    resolver = (
+      !name
+        ? new Resolver(getResolver({ provider, registry: registry.address }))
+        : new Resolver(getResolver({ networks: [{ provider, registry: registry.address, name }] }))
     )
   })
 
