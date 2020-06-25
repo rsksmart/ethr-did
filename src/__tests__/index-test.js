@@ -56,12 +56,33 @@ describe.each(namesAndMethods)('EthrDID %s', (_, name, method) => {
       gasPrice: 100000000000,
       gas: 4712388
     })
-    ethrDid = !method
-      ? new EthrDID({ provider, registry: registry.address, address: identity })
-      : new EthrDID({ provider, registry: registry.address, address: identity, method })
-    resolver = !name
-      ? new Resolver(getResolver({ provider, registry: registry.address }))
-      : new Resolver(getResolver({ networks: [{ provider, registry: registry.address, name }] }))
+
+    if (method) {
+      ethrDid = new EthrDID({
+        provider,
+        registry: registry.address,
+        address: identity,
+        method
+      })
+    } else {
+      ethrDid = new EthrDID({
+        provider,
+        registry: registry.address,
+        address: identity
+      })
+    }
+
+    if (name) {
+      resolver = new Resolver(
+        getResolver({
+          networks: [{ provider, registry: registry.address, name }]
+        })
+      )
+    } else {
+      resolver = new Resolver(
+        getResolver({ provider, registry: registry.address })
+      )
+    }
   })
 
   describe('presets', () => {
