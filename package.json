@@ -1,5 +1,5 @@
 {
-  "name": "ethr-did",
+  "name": "@rsksmart/ethr-did",
   "version": "1.1.1-beta.1",
   "description": "Create and manage DID documents for ethereum addresses",
   "main": "lib/index.js",
