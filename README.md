@@ -1,9 +1,31 @@
+<p align="middle">
+    <img src="https://www.rifos.org/assets/img/logo.svg" alt="logo" height="100" >
+</p>
+<h3 align="middle"><code>rif-identity.js</code></h3>
+<p align="middle">
+    Ethr DID + RSK support
+</p>
+<p align="middle">
+    <a href="https://badge.fury.io/js/%40rsksmart%ethr-did">
+        <img src="https://badge.fury.io/js/%40rsksmart%2Fethr-did.svg" alt="npm" />
+    </a>
+</p>
 
+```
+npm i @rsksmart/ethr-did
+```
 
-[![npm](https://img.shields.io/npm/dt/ethr-did.svg)](https://www.npmjs.com/package/ethr-did)
-[![npm](https://img.shields.io/npm/v/ethr-did.svg)](https://www.npmjs.com/package/ethr-did)
-[![Join the chat at](https://img.shields.io/badge/Riot-Join%20chat-green.svg)](https://chat.uport.me/#/login)
-[![Twitter Follow](https://img.shields.io/twitter/follow/uport_me.svg?style=social&label=Follow)](https://twitter.com/uport_me)
+### Disclaimer
+
+This package is a fork of [ethr-did](https://github.com/uport-project/ethr-did) used to pre-release RSK-oriented features. The features on this package will be PRed into `ethr-did`.
+
+**Versioning** This package will use the next sem-version minor yet not released to npm, post-fixed with beta versioning. E.g.: `v1.1.0-beta.1`
+
+**Collaborate** Point your PR to `develop`. `rsksmart-org` branch will be rebased on `develop` once the PR is approved. Other PR pointing to `rsksmart-org` will be responsible for updating readme + updating version after feature is rebased. `develop` will be rebased onto `upstream/develop` when `ethr-did` package is updated.
+
+**PRs included**
+
+- [Add rsk support](https://github.com/uport-project/ethr-did/pull/50)
 
 # Ethr-DID Library
 
