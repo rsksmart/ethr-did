@@ -1,7 +1,7 @@
 <p align="middle">
     <img src="https://www.rifos.org/assets/img/logo.svg" alt="logo" height="100" >
 </p>
-<h3 align="middle"><code>rif-identity.js</code></h3>
+<h3 align="middle"><code>ethr-did</code></h3>
 <p align="middle">
     Ethr DID + RSK support
 </p>
